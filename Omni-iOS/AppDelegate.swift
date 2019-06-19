@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -22,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let layout = UICollectionViewFlowLayout()
         let mainVC = ViewController(collectionViewLayout: layout)
+        mainVC.view.backgroundColor = .white
+        mainVC.title = "Portfolio"
         window?.rootViewController = UINavigationController(rootViewController: mainVC)
         
         if #available(iOS 11, *) {

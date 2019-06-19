@@ -17,14 +17,8 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        self.view.backgroundColor = .white
-        self.title = "Portfolio"
-        
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
         setupCollectionView()
+        setupSearchController()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -56,43 +50,10 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
     }
-}
-
-class TeamCell: UICollectionViewCell {
     
-    var name: String? {
-        didSet {
-            guard let really = name as String? else { return }
-            teamLabel.text = really
-        }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    func setup() {
-        self.backgroundColor = .orange
-
-        self.addSubview(teamLabel)
-        
-        teamLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 10, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 150)
-        teamLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
-        teamLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    }
-    
-    let teamLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Text"
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setupSearchController() {
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 }
-

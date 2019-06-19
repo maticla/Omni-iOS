@@ -13,6 +13,7 @@
 		64452BC922B95C98002D0BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64452BC722B95C98002D0BF1 /* LaunchScreen.storyboard */; };
 		64452BD122B987DC002D0BF1 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64452BD022B987DC002D0BF1 /* Constraints.swift */; };
 		64949F3922BA81C900739E59 /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64949F3822BA81C900739E59 /* CryptoModel.swift */; };
+		64949F3B22BA8E1800739E59 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64949F3A22BA8E1800739E59 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		64452BCA22B95C98002D0BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64452BD022B987DC002D0BF1 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		64949F3822BA81C900739E59 /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
+		64949F3A22BA8E1800739E59 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				64452BBE22B95C96002D0BF1 /* AppDelegate.swift */,
 				64452BC022B95C96002D0BF1 /* ViewController.swift */,
+				64949F3A22BA8E1800739E59 /* Cell.swift */,
 				64452BD222B987E6002D0BF1 /* Extensions */,
 				64949F3722BA818100739E59 /* Models */,
 				64452BC522B95C98002D0BF1 /* Assets.xcassets */,
@@ -155,6 +158,7 @@
 			files = (
 				64452BC122B95C96002D0BF1 /* ViewController.swift in Sources */,
 				64452BD122B987DC002D0BF1 /* Constraints.swift in Sources */,
+				64949F3B22BA8E1800739E59 /* Cell.swift in Sources */,
 				64949F3922BA81C900739E59 /* CryptoModel.swift in Sources */,
 				64452BBF22B95C96002D0BF1 /* AppDelegate.swift in Sources */,
 			);
