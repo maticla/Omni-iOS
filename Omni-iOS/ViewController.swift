@@ -56,4 +56,6 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
+    
+    // this is a random comment
 }
