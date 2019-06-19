@@ -12,7 +12,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     let cellId = "cellId"
     let mock_data = ["One", "Two", "Three", "Four", "Five"]
-    let searchController = UISearchController(searchResultsController: nil)
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func setupSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
