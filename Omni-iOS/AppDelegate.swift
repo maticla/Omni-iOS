@@ -20,9 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 70
+        
         let mainVC = ViewController(collectionViewLayout: layout)
         mainVC.view.backgroundColor = .white
         mainVC.title = "Portfolio"
+        
         window?.rootViewController = UINavigationController(rootViewController: mainVC)
         
         if #available(iOS 11, *) {
