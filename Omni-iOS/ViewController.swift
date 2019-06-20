@@ -27,7 +27,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TeamCell
-        cell.name = mock_data[indexPath.row]
+        cell.cardTitle = mock_data[indexPath.row]
         return cell
     }
     
@@ -36,7 +36,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        return UIEdgeInsets(top: 40, left: 8, bottom: 8, right: 8)
     }
     
     func setupCollectionView() {
