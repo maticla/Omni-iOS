@@ -1,0 +1,29 @@
+PODS:
+  - Cards (1.4.0):
+    - Player (= 0.13.0)
+    - SDWebImage (~> 5.0)
+  - Player (0.13.0)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
+
+DEPENDENCIES:
+  - Cards (from `https://github.com/maticla/Cards.git`)
+
+EXTERNAL SOURCES:
+  Cards:
+    :git: https://github.com/maticla/Cards.git
+
+CHECKOUT OPTIONS:
+  Cards:
+    :commit: f10669ccc681702fc7feb5eb5b106102f7063072
+    :git: https://github.com/maticla/Cards.git
+
+SPEC CHECKSUMS:
+  Cards: 9176d667e647ce8c85ba13cbc2d1cd704e3b078b
+  Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
+
+PODFILE CHECKSUM: 8f0684c9a53842b5f7e610c56eb1b6370c9df393
+
+COCOAPODS: 1.4.0

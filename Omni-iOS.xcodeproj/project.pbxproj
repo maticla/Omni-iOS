@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F247DFD2D386BA80E8845E5 /* Pods_Omni_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0952F5E583351901E5A3CB5 /* Pods_Omni_iOS.framework */; };
 		64452BBF22B95C96002D0BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64452BBE22B95C96002D0BF1 /* AppDelegate.swift */; };
 		64452BC122B95C96002D0BF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64452BC022B95C96002D0BF1 /* ViewController.swift */; };
 		64452BC622B95C98002D0BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64452BC522B95C98002D0BF1 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2098E816F0821AB8F25EDD53 /* Pods-Omni-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Omni-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Omni-iOS/Pods-Omni-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		64452BBB22B95C96002D0BF1 /* Omni-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Omni-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64452BBE22B95C96002D0BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64452BC022B95C96002D0BF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		64452BD022B987DC002D0BF1 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		64949F3822BA81C900739E59 /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
 		64949F3A22BA8E1800739E59 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		AFAB97DFAA342E19AA50E5A8 /* Pods-Omni-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Omni-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Omni-iOS/Pods-Omni-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E0952F5E583351901E5A3CB5 /* Pods_Omni_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Omni_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F247DFD2D386BA80E8845E5 /* Pods_Omni_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				64452BBD22B95C96002D0BF1 /* Omni-iOS */,
 				64452BBC22B95C96002D0BF1 /* Products */,
+				EDFAEF5352CD86B9A1E6666B /* Pods */,
+				78343247850E69307D4691CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +93,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		78343247850E69307D4691CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0952F5E583351901E5A3CB5 /* Pods_Omni_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDFAEF5352CD86B9A1E6666B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFAB97DFAA342E19AA50E5A8 /* Pods-Omni-iOS.debug.xcconfig */,
+				2098E816F0821AB8F25EDD53 /* Pods-Omni-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,9 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64452BCD22B95C98002D0BF1 /* Build configuration list for PBXNativeTarget "Omni-iOS" */;
 			buildPhases = (
+				E310F5E0502D1F48E494FD05 /* [CP] Check Pods Manifest.lock */,
 				64452BB722B95C96002D0BF1 /* Sources */,
 				64452BB822B95C96002D0BF1 /* Frameworks */,
 				64452BB922B95C96002D0BF1 /* Resources */,
+				FD617E2E0ED423418B8448E3 /* [CP] Embed Pods Frameworks */,
+				EE6E43129018831ED3BE7470 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,6 +177,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E310F5E0502D1F48E494FD05 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Omni-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE6E43129018831ED3BE7470 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Omni-iOS/Pods-Omni-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD617E2E0ED423418B8448E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Omni-iOS/Pods-Omni-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cards/Cards.framework",
+				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cards.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Omni-iOS/Pods-Omni-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		64452BB722B95C96002D0BF1 /* Sources */ = {
@@ -296,6 +381,7 @@
 		};
 		64452BCE22B95C98002D0BF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFAB97DFAA342E19AA50E5A8 /* Pods-Omni-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -314,6 +400,7 @@
 		};
 		64452BCF22B95C98002D0BF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2098E816F0821AB8F25EDD53 /* Pods-Omni-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

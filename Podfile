@@ -6,5 +6,6 @@ target 'Omni-iOS' do
   use_frameworks!
 
   # Pods for Omni-iOS
+  pod 'Cards', :git => 'https://github.com/maticla/Cards.git'
 
 end
