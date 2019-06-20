@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias CryptoData = [CryptoModel]
+
 struct CryptoModel: Decodable {
     let id, symbol, name: String
     let image: String

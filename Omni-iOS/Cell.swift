@@ -9,7 +9,7 @@
 import UIKit
 import Cards
 
-class TeamCell: UICollectionViewCell {
+class CustomCell: UICollectionViewCell {
     
     var cardTitle: String? {
         didSet {
@@ -27,6 +27,12 @@ class TeamCell: UICollectionViewCell {
         didSet {
             guard let itemSubtitle = cardItemSubtitle as String? else { return }
             CryptoCard.itemSubtitle = itemSubtitle
+        }
+    }
+    var cardImageUrl: String? {
+        didSet {
+            guard let imageUrl = cardImageUrl as String? else { return }
+            CryptoCard.icon = imageUrl
         }
     }
     
@@ -70,7 +76,7 @@ class TeamCell: UICollectionViewCell {
         card.title = "Title"
         card.itemTitle = "itemTitle"
         card.itemSubtitle = "itemSubtitle"
-        //card.icon = "?"
+        card.icon = "url"
         //card.hasParallax = false
         return card
     }()

@@ -11,23 +11,34 @@ import UIKit
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
-    let mock_data = ["One", "Two", "Three", "Four", "Five"]
     var searchController: UISearchController!
-    
+    var decodedData = CryptoData()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupCollectionView()
         setupSearchController()
+        
+        apiCall { data in
+            //self.decodedData = CryptoData()
+            self.decodedData = data
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mock_data.count
+        return decodedData.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TeamCell
-        cell.cardTitle = mock_data[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CustomCell
+        cell.cardTitle = decodedData[indexPath.row].name
+        cell.cardItemTitle = decodedData[indexPath.row].symbol.uppercased()
+        cell.cardItemSubtitle = String((decodedData[indexPath.row].current_price))
+        cell.cardImageUrl = decodedData[indexPath.row].image
         return cell
     }
     
@@ -41,7 +52,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func setupCollectionView() {
         collectionView.backgroundColor = .white
-        collectionView.register(TeamCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(CustomCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         // the top anchor is pinned to view.topAnchor otherwise, the weird "boost" effect on scroll appears.
@@ -56,5 +67,28 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+    }
+    
+    
+    func apiCall(completion: @escaping (CryptoData) -> Void) {
+        let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur")
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            // decode the data using JSONDecoder()
+            guard let cryptoData = try? JSONDecoder().decode(CryptoData.self, from: data) else {
+                print("Error decoding data.")
+                return
+            }
+            completion(cryptoData)
+        }.resume()
     }
 }
