@@ -44,7 +44,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView.register(TeamCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        // the top anchor is pinned to view.topAnchor
+        // the top anchor is pinned to view.topAnchor otherwise, the weird "boost" effect on scroll appears.
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
