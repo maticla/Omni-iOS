@@ -13,18 +13,21 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let cellId = "cellId"
     var searchController: UISearchController!
     var decodedData = CryptoData()
-
+    var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupCollectionView()
         setupSearchController()
+        setupActivityIndicator()
         
         apiCall { data in
             //self.decodedData = CryptoData()
             self.decodedData = data
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -90,5 +93,13 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
             }
             completion(cryptoData)
         }.resume()
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
     }
 }
