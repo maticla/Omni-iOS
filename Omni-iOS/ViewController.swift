@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
+class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+
     let cellId = "cellId"
     var searchController: UISearchController!
     var decodedData = CryptoData()
     var activityIndicator: UIActivityIndicatorView!
+    var filtered: [CryptoModel] = []
+    var searchActive: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,11 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return decodedData.count
+        if searchActive {
+            return filtered.count
+        } else {
+            return decodedData.count
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,6 +48,13 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         cell.cardItemTitle = decodedData[indexPath.row].symbol.uppercased()
         cell.cardItemSubtitle = String((decodedData[indexPath.row].current_price))
         cell.cardImageUrl = decodedData[indexPath.row].image
+        if searchActive {
+            cell.cardTitle = filtered[indexPath.row].name
+            cell.cardTitle = filtered[indexPath.row].name
+            cell.cardItemTitle = filtered[indexPath.row].symbol.uppercased()
+            cell.cardItemSubtitle = String((filtered[indexPath.row].current_price))
+            cell.cardImageUrl = filtered[indexPath.row].image
+        }
         return cell
     }
     
@@ -70,6 +83,11 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.searchBar.becomeFirstResponder()
     }
     
     func apiCall(completion: @escaping (CryptoData) -> Void) {
@@ -100,5 +118,35 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
+    }
+    
+    // MARK: UISearchController Logic
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        collectionView.reloadData()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchString = searchController.searchBar.text
+        //print(searchString!)
+        filtered = decodedData.filter({ (CryptoModel) -> Bool in
+            return CryptoModel.name == searchString
+        })
+        filtered.forEach { (CryptoModel) in
+            print(CryptoModel.name)
+        }
+        collectionView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+        collectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        collectionView.reloadData()
     }
 }
