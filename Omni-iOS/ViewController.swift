@@ -132,7 +132,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let searchString = searchController.searchBar.text
         //print(searchString!)
         filtered = decodedData.filter({ (CryptoModel) -> Bool in
-            return CryptoModel.name.contains(find: searchString!)
+            return CryptoModel.name.lowercased().contains(find: searchString!)
         })
         filtered.forEach { (CryptoModel) in
             print(CryptoModel.name)
@@ -153,6 +153,6 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
 extension String {
     func contains(find: String) -> Bool{
-        return self.range(of: find) != nil
+        return self.range(of: find.lowercased()) != nil
     }
 }
