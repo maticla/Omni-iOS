@@ -48,7 +48,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 300, height: 300)
     }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 40, left: 8, bottom: 8, right: 8)
     }
@@ -71,7 +71,6 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
-    
     
     func apiCall(completion: @escaping (CryptoData) -> Void) {
         let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur")
