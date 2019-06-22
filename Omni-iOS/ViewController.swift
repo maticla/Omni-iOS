@@ -122,7 +122,6 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     // MARK: UISearchController Logic
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         collectionView.reloadData()
@@ -145,13 +144,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         searchActive = true
         collectionView.reloadData()
     }
-    /*
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
-        collectionView.reloadData()
-    }
- */
-    
+
     func didDismissSearchController(_ searchController: UISearchController) {
         searchActive = false
         collectionView.reloadData()
