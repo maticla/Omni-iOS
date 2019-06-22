@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainVC = ViewController(collectionViewLayout: layout)
         mainVC.view.backgroundColor = .white
-        mainVC.title = "Portfolio"
+        mainVC.title = "Portfolio 🚀"
         
         window?.rootViewController = UINavigationController(rootViewController: mainVC)
         
