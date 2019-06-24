@@ -16,6 +16,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     var activityIndicator: UIActivityIndicatorView!
     var filtered: [CryptoModel] = []
     var searchActive: Bool = false
+    var refresher: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         setupCollectionView()
         setupSearchController()
         setupActivityIndicator()
+        setupUIRefreshControl()
         
         apiCall { data in
             //self.decodedData = CryptoData()
@@ -148,6 +150,26 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func didDismissSearchController(_ searchController: UISearchController) {
         searchActive = false
         collectionView.reloadData()
+    }
+    
+    func setupUIRefreshControl() {
+        refresher = UIRefreshControl()
+        collectionView.alwaysBounceVertical = true
+        refresher.tintColor = .gray
+        refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        collectionView.refreshControl = refresher
+    }
+    
+    @objc func refreshData() {
+        print("Refreshed!")
+        apiCall { data in
+            //self.decodedData = CryptoData()
+            self.decodedData = data
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                self.refresher.endRefreshing()
+            }
+        }
     }
 }
 
